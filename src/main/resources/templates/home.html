@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<style>
+    body {
+        background-color: plum;
+    }
+</style>
+<body>
+    <div id="header">Welcome to the most pink of all shops in existence.</div>
+    <div class="subheader">As a demo, I am just adding a few calculating functionalities.</div>
+    <form action="/add">
+        <div class="input">
+        Enter the 1st number: <input type="text" name="numberOne"><br>
+        Enter the 2nd number: <input type="text" name="numberTwo"><br>
+        </div>
+        <div class="buttons">
+        <input type="submit" value="Add!">
+        <input type="submit" formaction="/substract" value="Substract!">
+        <input type="submit" formaction="/multiply" value="Multiply!">
+        <input type="submit" formaction="/divide" value="Divide!">
+        </div>
+    </form>
+<!--Te 'formaction' nadpisują 'action' zadeklarowane w tagu 'form'. Dzięki temu możemy robić różne działania na tym samym inpucie. Czyli nie trzeba mieć oddzielnych okienek na różne operacje na danych.-->
+</body>
+</html>

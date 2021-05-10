@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="result.css">
+</head>
+
+<style>
+    body {
+        background-color: deeppink;
+    }
+</style>
+
+<body>
+    <div id="header">The result is (big brain time):</div>
+    <div th:text="'Calculations: ' + ${result}"/>
+    <div th:text="'Method called: ' + ${method}"/>
+
+    <!--W cudzysłowach macie dodatkowe, pojedyncze. W ten sposób oznacza się czysty tekst wewnątrz całości.
+    Thymeleaf potrzebuje całych kalkulacji zamkniętych w zwykły cudyzsłów, więc jeśli chcecie w środku
+    jakiś tekst dodać, to właśnie w pojedynczym cudyzsłowie.
+    I tyle. I Wylądował.-->
+
+    <div class="button">
+        <form action="/home" method="get">
+            <input type="submit" value="Back to menu.">
+        </form>
+    </div>
+</body>
+</html>

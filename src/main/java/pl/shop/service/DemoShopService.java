@@ -8,7 +8,7 @@ import pl.shop.models.Product;
 import java.math.BigDecimal;
 import java.math.MathContext;
 
-public class demoShopService {
+public class DemoShopService {
 
     /**
      * To miał być 'właściwy' Service, ale zdążyłem się po drodze nauyczyć, że Spring nie akceptuje
@@ -21,7 +21,7 @@ public class demoShopService {
     // economy knowledge.
     VatProvider vatProvider;
 
-    public demoShopService(VatProvider vatProvider) {
+    public DemoShopService(VatProvider vatProvider) {
         this.vatProvider = vatProvider;
     }
 
@@ -33,7 +33,7 @@ public class demoShopService {
      * zacząć być sfrustrowani. Odpalajcie sobie testy i np. tam logger na konsolce będzie
      * nas informował co się dzieje.
      */
-    Logger logger = LoggerFactory.getLogger(demoShopService.class);
+    private static final Logger logger = LoggerFactory.getLogger(DemoShopService.class);
 
     /**
      * Nadzwyczaj ważna funkcjonalność. Chociaż chyba zgodna ze sztuką, bo mam dla niej test i to nawet

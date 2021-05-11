@@ -21,7 +21,7 @@ class demoShopServiceTest {
      * W obu przypadkach wiecie gdzie mnie znaleźć. :)
      */
 
-    demoShopService demoShopService;
+    DemoShopService demoShopService;
     VatProvider vatProvider;
 
     @Test
@@ -38,7 +38,7 @@ class demoShopServiceTest {
     @Test
     void shouldCalculateGrossPriceForDefaultVat() throws IncorrectVatException {
         //given
-        Product product = generateTheProduct("Vegan cheese", "6.0", "someCrapBasedOnWhichVatCanDiffer", Category.HEALTHY_FOOD);
+        Product product = generateTheProduct("Vegan cheese", "someCrapBasedOnWhichVatCanDiffer", "6.0", Category.HEALTHY_FOOD);
         Mockito.when(vatProvider.getDefaultVat()).thenReturn(new BigDecimal("0.23"));
         //when
         BigDecimal actualResult = demoShopService.calculateTheGrossPriceForDefaultVat(product);
@@ -49,7 +49,7 @@ class demoShopServiceTest {
     @Test
     void shouldCalculateGrossPriceForGivenVat() throws IncorrectVatException {
         //given
-        Product product = generateTheProduct("Powdered tears of your enemies", "10.0", "someCrapBasedOnWhichVatCanDiffer", Category.SNACKS);
+        Product product = generateTheProduct("Powdered tears of your enemies", "someCrapBasedOnWhichVatCanDiffer", "10.0", Category.SNACKS);
         Mockito.when(vatProvider.getVatForProductCategory(product.getSomeCrapBasedOnWhichVatCanDiffer())).thenReturn(new BigDecimal("0.13"));
         BigDecimal expectedResult = new BigDecimal("11.30");
         //when
@@ -62,7 +62,7 @@ class demoShopServiceTest {
     @Test
     void shouldThrowIncorrectVatExceptionWhenVatIsTooHigh() {
         //given
-        Product product = generateTheProduct("Cola", "5.0", "someCrapBasedOnWhichVatCanDiffer", Category.DRINKS);
+        Product product = generateTheProduct("Cola", "someCrapBasedOnWhichVatCanDiffer", "5.0", Category.DRINKS);
         Mockito.when(vatProvider.getVatForProductCategory(product.getSomeCrapBasedOnWhichVatCanDiffer())).thenReturn(BigDecimal.TEN); // Podatek cukrowy, lol.
         //then
         assertThatExceptionOfType(IncorrectVatException.class).isThrownBy(() ->
@@ -80,7 +80,7 @@ class demoShopServiceTest {
     @BeforeEach
     void setUp() {
         vatProvider = Mockito.mock(VatProvider.class); // Mockuję se interfejsiątko żeby mi dawało takie stawki VATu jakich będę potrzebował w testach.
-        demoShopService = new demoShopService(vatProvider);
+        demoShopService = new DemoShopService(vatProvider);
     }
     // Tu na górze zwracam uwagę na kolejność. Mnie szlag trafił bo ciągle dostawałem nulla... shopService z parametrem
     // vatProvider implementowałem zanim implementowałem vatProvider. :/ W związku z tym, chciałem żeby tworzył mi

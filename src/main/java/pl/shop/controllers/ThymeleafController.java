@@ -5,7 +5,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import pl.shop.service.Service;
-import pl.shop.service.demoShopService;
 
 @Controller
 public class ThymeleafController {

@@ -8,6 +8,8 @@ import pl.shop.models.Category;
 import pl.shop.models.Product;
 
 import java.math.BigDecimal;
+import java.time.Instant;
+import java.util.Date;
 import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -21,7 +23,7 @@ class demoShopServiceTest {
      * W obu przypadkach wiecie gdzie mnie znaleźć. :)
      */
 
-    DemoShopService demoShopService;
+    private static DemoShopService demoShopService;
     VatProvider vatProvider;
 
     @Test
@@ -38,7 +40,7 @@ class demoShopServiceTest {
     @Test
     void shouldCalculateGrossPriceForDefaultVat() throws IncorrectVatException {
         //given
-        Product product = generateTheProduct("Vegan cheese", "someCrapBasedOnWhichVatCanDiffer", "6.0", Category.HEALTHY_FOOD);
+        Product product = generateTheProduct("Vegan cheese", "someCrapBasedOnWhichVatCanDiffer", "6.0", Category.HEALTHY_FOOD, Date.from(Instant.now()));
         Mockito.when(vatProvider.getDefaultVat()).thenReturn(new BigDecimal("0.23"));
         //when
         BigDecimal actualResult = demoShopService.calculateTheGrossPriceForDefaultVat(product);
@@ -49,7 +51,7 @@ class demoShopServiceTest {
     @Test
     void shouldCalculateGrossPriceForGivenVat() throws IncorrectVatException {
         //given
-        Product product = generateTheProduct("Powdered tears of your enemies", "someCrapBasedOnWhichVatCanDiffer", "10.0", Category.SNACKS);
+        Product product = generateTheProduct("Powdered tears of your enemies", "someCrapBasedOnWhichVatCanDiffer", "10.0", Category.SNACKS, Date.from(Instant.now()));
         Mockito.when(vatProvider.getVatForProductCategory(product.getSomeCrapBasedOnWhichVatCanDiffer())).thenReturn(new BigDecimal("0.13"));
         BigDecimal expectedResult = new BigDecimal("11.30");
         //when
@@ -62,7 +64,7 @@ class demoShopServiceTest {
     @Test
     void shouldThrowIncorrectVatExceptionWhenVatIsTooHigh() {
         //given
-        Product product = generateTheProduct("Cola", "someCrapBasedOnWhichVatCanDiffer", "5.0", Category.DRINKS);
+        Product product = generateTheProduct("Cola", "someCrapBasedOnWhichVatCanDiffer", "5.0", Category.DRINKS, Date.from(Instant.now()));
         Mockito.when(vatProvider.getVatForProductCategory(product.getSomeCrapBasedOnWhichVatCanDiffer())).thenReturn(BigDecimal.TEN); // Podatek cukrowy, lol.
         //then
         assertThatExceptionOfType(IncorrectVatException.class).isThrownBy(() ->
@@ -73,8 +75,8 @@ class demoShopServiceTest {
     // niż za każdym razem strzelać nowe 'new'.
     // Product wymaga BigDecimala jako cenę, ale przyjmujemy Stringa, bo łatwiej, a potem już sami
     // sobie z tego BigDecimala robimy.
-    private Product generateTheProduct(String productType, String someCrapBasedOnWhichVatCanDiffer, String productPrice, Category productCategory) {
-        return new Product(UUID.randomUUID(), productType, someCrapBasedOnWhichVatCanDiffer, new BigDecimal(productPrice), productCategory);
+    private Product generateTheProduct(String productType, String someCrapBasedOnWhichVatCanDiffer, String productPrice, Category productCategory, Date date) {
+        return new Product(UUID.randomUUID(), productType, someCrapBasedOnWhichVatCanDiffer, new BigDecimal(productPrice), productCategory, new Date());
     }
 
     @BeforeEach

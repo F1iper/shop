@@ -4,5 +4,5 @@ import pl.shop.dto.ProductDto;
 
 public interface ProductCreateService {
 
-    ProductDto save(ProductDto productDto);
+    ProductDto createProduct(ProductDto productDto);
 }

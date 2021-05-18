@@ -29,4 +29,10 @@ public class ProductMapperImpl implements ProductMapper {
                 .productCategory(product.getProductCategory())
                 .build();
     }
+
+
+//    @Override
+//    public <B, R> R remapObject(B b, R r) {
+//        return r;
+//    }
 }

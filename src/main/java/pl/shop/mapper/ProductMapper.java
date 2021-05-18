@@ -8,4 +8,6 @@ public interface ProductMapper {
     Product productDtoToProduct(ProductDto productDto);
 
     ProductDto productToProductDto(Product product);
+
+//    <B, R> R remapObject(B b, R r);
 }

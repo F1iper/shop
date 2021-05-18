@@ -21,10 +21,11 @@ public class ProductCreateServiceImpl implements ProductCreateService {
     private final ProductMapper productMapper;
 
     @Override
-    public ProductDto save(ProductDto productDto) {
+    public ProductDto createProduct(ProductDto productDto) {
         productDto.setCreatedAt(new Date());
 
-        Product savedProduct = productRepository.save(productMapper.productDtoToProduct(productDto));
+        Product receivedMappedProduct = productMapper.productDtoToProduct(productDto);
+        Product savedProduct = productRepository.save(receivedMappedProduct);
         logger.info("Product created: " + productDto.getProductName());
         return productMapper.productToProductDto(savedProduct);
     }

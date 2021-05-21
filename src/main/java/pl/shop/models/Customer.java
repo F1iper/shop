@@ -18,7 +18,7 @@ public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID Uuid;
+    private UUID uuid;
 
     private String username;
 
@@ -28,7 +28,7 @@ public class Customer {
 
     @ManyToMany
     @JoinTable(
-            name = "user_products_bought",
+            name = "customer_products_bought",
             joinColumns = {@JoinColumn(name = "customer_id")},
             inverseJoinColumns = {@JoinColumn(name = "product_id")})
     Set<Product> productsBought = new HashSet<>();

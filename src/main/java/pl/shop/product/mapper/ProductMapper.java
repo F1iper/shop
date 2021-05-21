@@ -1,7 +1,7 @@
-package pl.shop.mapper;
+package pl.shop.product.mapper;
 
-import pl.shop.dto.ProductDto;
-import pl.shop.models.Product;
+import pl.shop.product.dto.ProductDto;
+import pl.shop.product.domain.Product;
 
 public interface ProductMapper {
 

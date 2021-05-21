@@ -1,14 +1,14 @@
-package pl.shop.service.impl;
+package pl.shop.product.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import pl.shop.dto.ProductDto;
-import pl.shop.mapper.ProductMapper;
-import pl.shop.models.Product;
-import pl.shop.repository.ProductRepository;
-import pl.shop.service.ProductCreateService;
+import pl.shop.product.dto.ProductDto;
+import pl.shop.product.mapper.ProductMapper;
+import pl.shop.product.domain.Product;
+import pl.shop.product.repository.ProductRepository;
+import pl.shop.product.service.ProductCreateService;
 
 import java.util.Date;
 

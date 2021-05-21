@@ -1,4 +1,4 @@
-package pl.shop.service;
+package pl.shop.todelete.service;
 
 import java.math.BigDecimal;
 

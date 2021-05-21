@@ -1,9 +1,9 @@
-package pl.shop.service;
+package pl.shop.todelete.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import pl.shop.exceptions.IncorrectVatException;
-import pl.shop.models.Product;
+import pl.shop.exception.IncorrectVatException;
+import pl.shop.product.domain.Product;
 
 import java.math.BigDecimal;
 import java.math.MathContext;

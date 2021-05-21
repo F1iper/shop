@@ -1,4 +1,4 @@
-package pl.shop.service;
+package pl.shop.todelete.service;
 
 @org.springframework.stereotype.Service
 public class Service {

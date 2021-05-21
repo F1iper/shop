@@ -1,12 +1,8 @@
-package pl.shop.models;
+package pl.shop.product.dto;
 
 import lombok.*;
-import org.springframework.stereotype.Component;
+import pl.shop.category.Category;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.UUID;
@@ -15,17 +11,13 @@ import java.util.UUID;
 @NoArgsConstructor
 @Getter
 @Setter
-@Entity
 @Builder
-public class Product {
+public class ProductDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
     private String productName;
     private String someCrapBasedOnWhichVatCanDiffer;
     private BigDecimal productNetPrice;
     private Category productCategory;
     private Date createdAt;
-
 }

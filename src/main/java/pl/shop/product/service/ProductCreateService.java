@@ -1,6 +1,6 @@
-package pl.shop.service;
+package pl.shop.product.service;
 
-import pl.shop.dto.ProductDto;
+import pl.shop.product.dto.ProductDto;
 
 public interface ProductCreateService {
 

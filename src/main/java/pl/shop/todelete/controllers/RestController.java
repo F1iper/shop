@@ -1,10 +1,10 @@
-package pl.shop.controllers;
+package pl.shop.todelete.controllers;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import pl.shop.service.Service;
+import pl.shop.todelete.service.Service;
 
 /**
  * Komencie wrzucam wyłącznie tymczasowe. Przypominam, że zgodnie z przykazanimi Wujka Boba,

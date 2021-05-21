@@ -1,11 +1,11 @@
-package pl.shop.service;
+package pl.shop.todelete.service;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import pl.shop.exceptions.IncorrectVatException;
-import pl.shop.models.Category;
-import pl.shop.models.Product;
+import pl.shop.exception.IncorrectVatException;
+import pl.shop.category.Category;
+import pl.shop.product.domain.Product;
 
 import java.math.BigDecimal;
 import java.time.Instant;

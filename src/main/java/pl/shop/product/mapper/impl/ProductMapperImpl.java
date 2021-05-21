@@ -1,9 +1,9 @@
-package pl.shop.mapper.impl;
+package pl.shop.product.mapper.impl;
 
 import org.springframework.stereotype.Component;
-import pl.shop.dto.ProductDto;
-import pl.shop.mapper.ProductMapper;
-import pl.shop.models.Product;
+import pl.shop.product.dto.ProductDto;
+import pl.shop.product.mapper.ProductMapper;
+import pl.shop.product.domain.Product;
 
 @Component
 public class ProductMapperImpl implements ProductMapper {

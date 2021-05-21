@@ -1,9 +1,9 @@
-package pl.shop.models;
+package pl.shop.category;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.stereotype.Component;
+import pl.shop.product.domain.Product;
 
 import java.util.ArrayList;
 import java.util.List;

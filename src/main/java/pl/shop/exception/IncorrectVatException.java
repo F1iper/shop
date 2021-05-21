@@ -1,4 +1,4 @@
-package pl.shop.exceptions;
+package pl.shop.exception;
 
 import org.springframework.stereotype.Component;
 

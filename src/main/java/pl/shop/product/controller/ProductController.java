@@ -1,16 +1,13 @@
-package pl.shop.controllers;
+package pl.shop.product.controller;
 
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pl.shop.dto.ProductDto;
-import pl.shop.service.DemoShopService;
-import pl.shop.service.ProductCreateService;
+import pl.shop.product.dto.ProductDto;
+import pl.shop.product.service.ProductCreateService;
 
 @RestController
 @RequestMapping("/api/v1")

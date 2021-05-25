@@ -1,7 +1,7 @@
 package pl.shop.models;
 
 import lombok.*;
-import org.springframework.stereotype.Component;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,6 +26,15 @@ public class Product {
     private String someCrapBasedOnWhichVatCanDiffer;
     private BigDecimal productNetPrice;
     private Category productCategory;
+    private String description;
+
+    //will probably need some pics, either via url or blob in db
+    private String photoUrl;
+
+    //probably not a good idea to hold this value directly in the entity long-term. sticking it here so we dont forget
+    private int available;
+
+    @CreatedDate
     private Date createdAt;
 
 }

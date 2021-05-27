@@ -75,6 +75,7 @@ class demoShopServiceTest {
     // niż za każdym razem strzelać nowe 'new'.
     // Product wymaga BigDecimala jako cenę, ale przyjmujemy Stringa, bo łatwiej, a potem już sami
     // sobie z tego BigDecimala robimy.
+
     private Product generateTheProduct(String productType, String someCrapBasedOnWhichVatCanDiffer, String productPrice, Category productCategory, Date date) {
         return new Product(UUID.randomUUID(), productType, someCrapBasedOnWhichVatCanDiffer, new BigDecimal(productPrice), productCategory, new Date());
     }

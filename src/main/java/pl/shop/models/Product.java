@@ -37,4 +37,6 @@ public class Product {
     @CreatedDate
     private Date createdAt;
 
+    public Product(UUID randomUUID, String productType, String someCrapBasedOnWhichVatCanDiffer, BigDecimal bigDecimal, Category productCategory, Date date) {
+    }
 }

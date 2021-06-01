@@ -3,7 +3,7 @@ package pl.shop.models;
 // 'User' is used by spring security, it also feels very generic. Customer fits better =]
 
 
-import lombok.Data;
+import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
@@ -12,8 +12,13 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Data
+@Getter
+@Setter
+@Table(name = "customers")
 public class Customer {
 
     @Id
@@ -31,13 +36,15 @@ public class Customer {
             name = "customer_products_bought",
             joinColumns = {@JoinColumn(name = "customer_id")},
             inverseJoinColumns = {@JoinColumn(name = "product_id")})
-    Set<Product> productsBought = new HashSet<>();
+    private Set<Product> productsBought = new HashSet<>();
 
 
-    Category favouriteCategory;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "favourite_category")
+    private Category favouriteCategory;
 
-//todo
-//    Set<Order> orders = new HashSet<>();
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "customer", orphanRemoval = true)
+    private Set<Order> orders = new HashSet<>();
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "customer", orphanRemoval = true)
     private CustomerDetails customerDetails;

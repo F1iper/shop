@@ -3,6 +3,8 @@ package pl.shop.models;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -21,13 +23,5 @@ public class CustomerDetails {
 
     private String email;
 
-    private String streetName;
-
-    private String streetNumber;
-
-    private String houseNumber;
-
-    private String postalCode;
-
-    private String City;
+    private Address homeAddress;
 }
